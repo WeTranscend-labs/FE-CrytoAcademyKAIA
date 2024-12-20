@@ -1,17 +1,17 @@
-import React, { useEffect, useRef } from 'react';
 import CodeMirror from 'codemirror';
+import { useEffect, useRef } from 'react';
 
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/eclipse.css';
-import 'codemirror/mode/javascript/javascript';
+import 'codemirror-solidity';
+import 'codemirror/addon/comment/comment';
 import 'codemirror/addon/edit/closebrackets';
 import 'codemirror/addon/edit/matchbrackets';
-import 'codemirror/addon/selection/active-line';
-import 'codemirror/addon/comment/comment';
+import 'codemirror/addon/fold/brace-fold';
 import 'codemirror/addon/fold/foldcode';
 import 'codemirror/addon/fold/foldgutter';
-import 'codemirror/addon/fold/brace-fold';
-import 'codemirror-solidity';
+import 'codemirror/addon/selection/active-line';
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/mode/javascript/javascript';
+import 'codemirror/theme/eclipse.css';
 import Instructions from '../learning-instrument';
 
 interface CodeMirrorEditorProps {
