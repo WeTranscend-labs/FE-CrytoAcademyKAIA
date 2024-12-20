@@ -60,7 +60,7 @@ export const Background = () => {
             fragment: frag,
             uniforms: {
                 uTime: { value: 0 },
-                uColor: { value: new Color(0.4, 0.2, 0.8) }, // Adjusted color for better contrast
+                uColor: { value: new Color(0.3, 0.5, 0.8) }, // Màu xanh nhạt hơn
                 uResolution: {
                     value: [gl.canvas.width, gl.canvas.height, gl.canvas.width / gl.canvas.height],
                 },
@@ -72,7 +72,7 @@ export const Background = () => {
 
         const update = (t: number) => {
             animationFrame = requestAnimationFrame(update);
-            program.uniforms.uTime.value = t * 0.001;
+            program.uniforms.uTime.value = t * 0.0003; // Giảm tốc độ hiệu ứng
             renderer.render({ scene: mesh });
         };
 
