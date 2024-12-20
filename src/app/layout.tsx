@@ -6,6 +6,7 @@ import Footer from '@/components/layout/footer';
 import ScrollToTop from '@/components/layout/scroll-to-top';
 import '@rainbow-me/rainbowkit/styles.css';
 import { WalletProvider } from '@/contexts/providers/WalletProvider';
+import { Toaster } from '@/components/ui/toaster';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <WalletProvider>
           <div className="min-h-screen flex flex-col">
+            <Toaster />
             <Navbar />
             <main className="flex-grow">{children}</main>
             <Footer />
