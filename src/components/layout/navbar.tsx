@@ -1,8 +1,6 @@
 'use client';
 
-import { GraduationCap } from 'lucide-react';
-import Link from 'next/link';
-import ConnectWalletBtn from '../wallet/ConnectWalletBtn';
+
 
 import { useScrollPosition } from '@/hooks/use-scroll-position';
 import { GraduationCap } from 'lucide-react';
@@ -11,6 +9,7 @@ import { useState } from 'react';
 import NavLinks from './navbar/nav-links';
 import Hamburger from './navbar/hamburger';
 import MobileMenu from './navbar/mobile-menu';
+import ConnectWalletBtn from '../wallet/ConnectWalletBtn';
 
 
 export default function Navbar() {

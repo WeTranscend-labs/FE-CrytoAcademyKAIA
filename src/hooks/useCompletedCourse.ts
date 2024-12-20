@@ -1,56 +1,47 @@
-import { useReadContract } from 'wagmi';
-import { useAccount } from 'wagmi';
-import { abi } from '@/contracts/abi';
-import { useState, useEffect } from 'react';
+"use client";
 
-const contractAddress = '0x8d401464c1FFDB0103C0B542337bfB21Fc260144';
+import { abi } from "@/contracts/abi";
+import { useState, useEffect } from "react";
 
-export function useGetCompletedCourses() {
-  const { address } = useAccount();
+import type { Address } from "viem";
+import { useReadContract } from "wagmi";
+
+const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
+
+export function useCompletedCourses(address: string | undefined) {
   const [completedCourses, setCompletedCourses] = useState<number[]>([]);
-  const [error, setError] = useState<Error | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  const {
-    data,
-    error: contractError,
-    isPending,
-  } = useReadContract({
-    address: address,
-    abi,
-    functionName: 'getCompletedCourses',
-    args: [address || ''], // Fallback empty string nếu không có địa chỉ
-    query: {
-      enabled: !!address, // Chỉ enable khi có địa chỉ
-    },
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  useEffect(() => {
+    console.log(completedCourses, address);
+  }, [completedCourses, address]);
+  const { data, isLoading, isError } = useReadContract({
+    address: "0xFce824e8E0e522E10cA6709FdA89b931CDEDeC4E",
+    abi: abi,
+    functionName: "getCompletedCourses",
+    args: address ? [address] : undefined,
+    // enabled: Boolean(address),
   });
 
-  // Theo dõi và cập nhật dữ liệu
   useEffect(() => {
     if (data) {
-      setCompletedCourses(data as number[]);
-      setIsLoading(false);
+      try {
+        // Convert BigInt array to number array
+        const courses = (data as bigint[]).map((id) => Number(id));
+        setCompletedCourses(courses);
+        setError(null);
+      } catch (err) {
+        console.error("Error parsing completed courses:", err);
+        setError("Failed to load completed courses");
+      }
     }
-  }, [data]);
-
-  // Theo dõi lỗi
-  useEffect(() => {
-    if (contractError) {
-      setError(contractError);
-      setIsLoading(false);
-    }
-  }, [contractError]);
-
-  // Theo dõi trạng thái loading
-  useEffect(() => {
-    setIsLoading(isPending);
-  }, [isPending]);
-
-  console.log(completedCourses);
+    setLoading(isLoading);
+  }, [data, isLoading]);
 
   return {
     completedCourses,
-    isLoading,
-    error: error || contractError,
+    loading,
+    error,
+    isError,
   };
 }
