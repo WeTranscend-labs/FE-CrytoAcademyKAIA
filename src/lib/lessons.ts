@@ -1,39 +1,39 @@
-import { ILessonContent } from "@/types/lesson";
+import { ILessonContent } from '@/types/lesson';
 
 const lessonContents: Record<string, ILessonContent> = {
   l1: {
-    id: "l1",
-    courseId: "1",
-    moduleId: "m1",
-    moduleTitle: "Introduction to Blockchain",
-    title: "What is Blockchain?",
+    id: 'l1',
+    courseId: '1',
+    moduleId: 'm1',
+    moduleTitle: 'Introduction to Blockchain',
+    title: 'What is Blockchain?',
     description:
-      "Learn the fundamental concepts of blockchain technology by implementing a basic block structure.",
+      'Learn the fundamental concepts of blockchain technology by implementing a basic block structure.',
     challenge:
-      "Create a basic blockchain implementation with blocks and hash linking.",
+      'Create a basic blockchain implementation with blocks and hash linking.',
     hints: [
-      "Think about what properties a block should have",
-      "Consider how blocks are linked together",
-      "Remember to use cryptographic hashing for security",
+      'Think about what properties a block should have',
+      'Consider how blocks are linked together',
+      'Remember to use cryptographic hashing for security',
     ],
     objectives: [
-      "Understand the basic structure of a blockchain",
-      "Learn how blocks are connected using hashes",
-      "Implement a simple block class",
+      'Understand the basic structure of a blockchain',
+      'Learn how blocks are connected using hashes',
+      'Implement a simple block class',
     ],
-    language: "javascript",
+    language: 'javascript',
     steps: [
       {
-        id: "s1",
-        title: "Block Structure",
+        id: 's1',
+        title: 'Block Structure',
         description:
           "Let's start by creating the basic structure of a Block class.",
         challenge:
-          "Create a Block class with a constructor that initializes timestamp, data, previousHash, nonce and hash properties.",
+          'Create a Block class with a constructor that initializes timestamp, data, previousHash, nonce and hash properties.',
         hints: [
-          "Initialize timestamp, data, and previousHash from constructor parameters",
-          "Set nonce to 0 initially",
-          "Calculate and set initial hash in constructor",
+          'Initialize timestamp, data, and previousHash from constructor parameters',
+          'Set nonce to 0 initially',
+          'Calculate and set initial hash in constructor',
         ],
         initialCode: `class Block {
   constructor(timestamp, data, previousHash = '') {
@@ -60,29 +60,29 @@ const lessonContents: Record<string, ILessonContent> = {
 }`,
         tests: [
           {
-            input: "block structure",
+            input: 'block structure',
             expected: {
-              timestamp: "number",
-              data: "string",
-              previousHash: "string",
-              nonce: "number",
-              hash: "string",
+              timestamp: 'number',
+              data: 'string',
+              previousHash: 'string',
+              nonce: 'number',
+              hash: 'string',
             },
             description:
-              "Block should have all required properties with correct types",
+              'Block should have all required properties with correct types',
           },
         ],
       },
       {
-        id: "s2",
-        title: "Hash Calculation",
+        id: 's2',
+        title: 'Hash Calculation',
         description: "Now let's implement the hash calculation functionality.",
         challenge:
-          "Implement the calculateHash method that combines all block properties and creates a unique hash using SHA256.",
+          'Implement the calculateHash method that combines all block properties and creates a unique hash using SHA256.',
         hints: [
-          "Use the SHA256 function provided",
-          "Combine timestamp, data, previousHash and nonce into a single string",
-          "Return the hash as a string",
+          'Use the SHA256 function provided',
+          'Combine timestamp, data, previousHash and nonce into a single string',
+          'Return the hash as a string',
         ],
         initialCode: `class Block {
   constructor(timestamp, data, previousHash = '') {
@@ -118,9 +118,9 @@ const lessonContents: Record<string, ILessonContent> = {
 }`,
         tests: [
           {
-            input: "hash calculation",
-            expected: "different hash for different data",
-            description: "Hash should change when block data changes",
+            input: 'hash calculation',
+            expected: 'different hash for different data',
+            description: 'Hash should change when block data changes',
           },
         ],
       },

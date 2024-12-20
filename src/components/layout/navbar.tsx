@@ -1,5 +1,8 @@
-// src/components/layout/Navbar.tsx
 'use client';
+
+import { GraduationCap } from 'lucide-react';
+import Link from 'next/link';
+import ConnectWalletBtn from '../wallet/ConnectWalletBtn';
 
 import { useScrollPosition } from '@/hooks/use-scroll-position';
 import { GraduationCap } from 'lucide-react';
@@ -56,6 +59,7 @@ export default function Navbar() {
                     </div>
                 </div>
             </div>
+            <ConnectWalletBtn />
 
             {/* Mobile menu */}
             <MobileMenu isOpen={isMenuOpen} onClose={handleClose} />
