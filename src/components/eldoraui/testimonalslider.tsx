@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import { Transition } from "@headlessui/react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 interface Testimonial {
   img: string;

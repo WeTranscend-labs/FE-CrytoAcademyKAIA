@@ -1,12 +1,12 @@
-import { GraduationCap, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import Background from '../eldoraui/novatrixbg';
 import { GradualSpacing } from '../eldoraui/gradualspacing';
+import Background from '../eldoraui/novatrixbg';
 
 
 export default function Hero() {
     return (
-        <div className="relative min-h-screen pt-4 flex items-center justify-center overflow-hidden " data-section="hero">
+        <div className="relative min-h-screen pt-16 flex items-center justify-center overflow-hidden " data-section="hero">
             <Background />
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
