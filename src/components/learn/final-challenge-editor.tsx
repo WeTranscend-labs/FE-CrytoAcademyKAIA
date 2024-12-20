@@ -1,7 +1,7 @@
-import { useState } from 'react';
 import { ILessonContent } from '@/types/lesson';
-import CodeEditor from './code-editor/code-mirror-editor';
 import { Trophy } from 'lucide-react';
+import { useState } from 'react';
+import CodeEditor from './code-editor/code-mirror-editor';
 
 interface FinalChallengeEditorProps {
     lesson: ILessonContent;
@@ -24,7 +24,7 @@ export default function FinalChallengeEditor({ lesson, onComplete }: FinalChalle
 
             <div className="flex-1">
                 <CodeEditor
-                    
+
                     value={code}
                     onChange={setCode}
                     language={lesson.language}

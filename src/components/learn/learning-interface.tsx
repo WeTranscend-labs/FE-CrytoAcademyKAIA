@@ -1,15 +1,12 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 
 import { validateCode } from '@/services/codeValidation';
+import { ILessonContent, TestResult } from '@/types/lesson';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { TestResult } from '@/types/lesson';
-import { ILessonContent } from '@/types/lesson';
-import CodeMirrorEditor from './code-editor/code-mirror-editor';
-import TestResults from './results/test-results';
-import { MintCertificateButton } from './MintCertificateButton';
 import { useAccount } from 'wagmi';
-import { SmartContractContextType } from '@/types/contexts/SmartContractContextType';
-import SmartContractContext from '@/contexts/components/SmartContractContext';
+import CodeMirrorEditor from './code-editor/code-mirror-editor';
+import { MintCertificateButton } from './mint-certificate-button';
+import TestResults from './results/test-results';
 
 interface LearningInterfaceProps {
   lesson: ILessonContent;
@@ -85,13 +82,12 @@ export default function LearningInterface({ lesson }: LearningInterfaceProps) {
                 {lesson.steps.map((step, index) => (
                   <div
                     key={step.id}
-                    className={`h-1.5 w-6 rounded transition-colors ${
-                      index === currentStepIndex
+                    className={`h-1.5 w-6 rounded transition-colors ${index === currentStepIndex
                         ? 'bg-blue-500'
                         : completedSteps.has(step.id)
-                        ? 'bg-green-500'
-                        : 'bg-gray-200'
-                    }`}
+                          ? 'bg-green-500'
+                          : 'bg-gray-200'
+                      }`}
                   />
                 ))}
               </div>
@@ -100,22 +96,20 @@ export default function LearningInterface({ lesson }: LearningInterfaceProps) {
               <button
                 onClick={handlePrevious}
                 disabled={isFirstStep}
-                className={`p-2 rounded-lg transition-colors ${
-                  isFirstStep
+                className={`p-2 rounded-lg transition-colors ${isFirstStep
                     ? 'text-gray-300 cursor-not-allowed'
                     : 'text-gray-600 hover:bg-gray-100'
-                }`}
+                  }`}
               >
                 <ArrowLeft className="w-5 h-5" />
               </button>
               <button
                 onClick={handleNext}
                 disabled={isLastStep || !completedSteps.has(currentStep.id)}
-                className={`p-2 rounded-lg transition-colors ${
-                  isLastStep || !completedSteps.has(currentStep.id)
+                className={`p-2 rounded-lg transition-colors ${isLastStep || !completedSteps.has(currentStep.id)
                     ? 'text-gray-300 cursor-not-allowed'
                     : 'text-gray-600 hover:bg-gray-100'
-                }`}
+                  }`}
               >
                 <ArrowRight className="w-5 h-5" />
               </button>
