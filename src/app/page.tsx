@@ -12,9 +12,9 @@ export default function Home() {
     <div className="space-y-16">
 
       <Hero />
-      <Testimonials />
       <Features />
       <CourseList />
+      <Testimonials />
     </div>
   );
 }

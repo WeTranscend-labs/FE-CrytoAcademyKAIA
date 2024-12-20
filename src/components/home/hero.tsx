@@ -1,38 +1,23 @@
 import { GraduationCap, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Background from '../eldoraui/novatrixbg';
+import { GradualSpacing } from '../eldoraui/gradualspacing';
 
 
 export default function Hero() {
     return (
-        <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="relative min-h-screen pt-4 flex items-center justify-center overflow-hidden " data-section="hero">
             <Background />
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                {/* Logo Badge */}
-                {/* <div className="flex justify-center mb-12 animate-fade-in">
-                    <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 inline-flex items-center space-x-3 border border-white/20 shadow-2xl">
-                        <GraduationCap className="w-10 h-10 text-blue-300" />
-                        <div className="flex flex-col items-start">
-                            <span className="text-3xl font-bold bg-gradient-to-r from-blue-200 to-indigo-200 text-transparent bg-clip-text">
-                                BlockLearn
-                            </span>
-                            <span className="text-blue-200 text-sm">Web3 Development Academy</span>
-                        </div>
-                    </div>
-                </div> */}
 
-                {/* Main Title */}
-                <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight text-white">
-                    Master the Art of{' '}
-                    <span className="relative">
-                        <span className="bg-gradient-to-r from-blue-400 to-violet-400 text-transparent bg-clip-text">
-                            Blockchain Development
-                        </span>
-                    </span>
-                </h1>
 
-                <p className="text-xs md:text-xl text-blue-100 mb-12 max-w-3xl mx-auto">
+                <GradualSpacing
+                    text='Unlock the Power of Blockchain, Step by Step'
+                    highlightFrom={26}
+                    className="text-white"
+                />
+                <p className="text-xs md:text-[18px] leading-9 text-blue-100 my-6 max-w-3xl mx-auto">
                     Embark on a journey to become a proficient blockchain developer through hands-on learning and real-world projects.
                 </p>
 
@@ -45,6 +30,7 @@ export default function Hero() {
                         Start Your Journey
                         <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
                     </Link>
+
                     <Link
                         href="/courses"
                         className="px-8 py-4 bg-white/10 backdrop-blur-lg text-white rounded-xl font-semibold text-lg hover:bg-white/20 transform hover:scale-105 transition-all duration-200 border border-white/20"
