@@ -17,6 +17,7 @@ export function useCompletedCourses(address: string | undefined) {
     address: "0xb41dD39a91D438CdC95169Ee6eC20aE88b780e73",
     abi: contractABI,
     functionName: "getCompletedCourses",
+
     args: address ? [address] : undefined,
     // enabled: Boolean(address),
   });

@@ -1,3 +1,4 @@
+
 import CourseList from "@/components/courses/course-list";
 import { StudentDashboard } from "@/components/dashboard/student-dashboard";
 import Features from "@/components/home/features";
@@ -12,12 +13,13 @@ export default function Home() {
   return (
     <div className="space-y-16">
 
+
       <Hero />
       <StudentDashboard />
       <Features />
       <CourseList />
       <Testimonials />
-
     </div>
+
   );
 }
