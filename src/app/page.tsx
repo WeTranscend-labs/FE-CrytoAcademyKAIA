@@ -1,5 +1,5 @@
+
 import CourseList from "@/components/courses/course-list";
-import Background from "@/components/eldoraui/novatrixbg";
 import Features from "@/components/home/features";
 import Hero from "@/components/home/hero";
 import Testimonials from "@/components/home/TestimonalSliderDemo";
