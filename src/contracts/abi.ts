@@ -1,4 +1,4 @@
-export const abi = [
+export const contractABI = [
   {
     inputs: [
       {
@@ -270,8 +270,33 @@ export const abi = [
         name: "courseName",
         type: "string",
       },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "expGained",
+        type: "uint256",
+      },
     ],
     name: "CertificateMinted",
+    type: "event",
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: "address",
+        name: "student",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "newLevel",
+        type: "uint256",
+      },
+    ],
+    name: "LevelUp",
     type: "event",
   },
   {
@@ -595,17 +620,39 @@ export const abi = [
   {
     inputs: [
       {
-        internalType: "address",
-        name: "student",
-        type: "address",
+        internalType: "uint256",
+        name: "limit",
+        type: "uint256",
       },
     ],
-    name: "getCompletedCoursesCount",
+    name: "getLeaderboard",
     outputs: [
       {
-        internalType: "uint256",
+        components: [
+          {
+            internalType: "address",
+            name: "student",
+            type: "address",
+          },
+          {
+            internalType: "uint256",
+            name: "level",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "exp",
+            type: "uint256",
+          },
+          {
+            internalType: "uint256",
+            name: "completedCourses",
+            type: "uint256",
+          },
+        ],
+        internalType: "struct BlockLearnCertificate.LeaderboardEntry[]",
         name: "",
-        type: "uint256",
+        type: "tuple[]",
       },
     ],
     stateMutability: "view",
@@ -675,6 +722,35 @@ export const abi = [
         internalType: "address",
         name: "",
         type: "address",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "",
+        type: "address",
+      },
+    ],
+    name: "studentInfo",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "level",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "exp",
+        type: "uint256",
+      },
+      {
+        internalType: "uint256",
+        name: "completedCoursesCount",
+        type: "uint256",
       },
     ],
     stateMutability: "view",
