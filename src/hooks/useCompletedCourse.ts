@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { abi } from "@/contracts/abi";
-import { useState, useEffect } from "react";
+import { abi } from '@/contracts/abi';
+import { useState, useEffect } from 'react';
 
-import type { Address } from "viem";
-import { useReadContract } from "wagmi";
+import type { Address } from 'viem';
+import { useReadContract } from 'wagmi';
 
 const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
 
@@ -16,9 +16,9 @@ export function useCompletedCourses(address: string | undefined) {
     console.log(completedCourses, address);
   }, [completedCourses, address]);
   const { data, isLoading, isError } = useReadContract({
-    address: "0xFce824e8E0e522E10cA6709FdA89b931CDEDeC4E",
+    address: '0xb41dD39a91D438CdC95169Ee6eC20aE88b780e73',
     abi: abi,
-    functionName: "getCompletedCourses",
+    functionName: 'getCompletedCourses',
     args: address ? [address] : undefined,
     // enabled: Boolean(address),
   });
@@ -31,8 +31,8 @@ export function useCompletedCourses(address: string | undefined) {
         setCompletedCourses(courses);
         setError(null);
       } catch (err) {
-        console.error("Error parsing completed courses:", err);
-        setError("Failed to load completed courses");
+        console.error('Error parsing completed courses:', err);
+        setError('Failed to load completed courses');
       }
     }
     setLoading(isLoading);

@@ -2,7 +2,7 @@ import { useWriteContract, useWaitForTransactionReceipt } from 'wagmi';
 import { abi } from '@/contracts/abi';
 import { MintCertificateArgs } from '@/types/contexts/SmartContractContextType';
 
-const contractAddress = '0x8d401464c1FFDB0103C0B542337bfB21Fc260144';
+const contractAddress = '0xb41dD39a91D438CdC95169Ee6eC20aE88b780e73';
 
 export function useMintCertificate() {
   // Set up the contract write function
