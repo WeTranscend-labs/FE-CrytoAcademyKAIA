@@ -1,45 +1,51 @@
 'use client';
 
-import { useAccount, useContractRead } from 'wagmi';
-import { useEffect, useState } from 'react';
-import { abi } from '@/contracts/abi'; // Make sure to adjust the path to your ABI file
-import type { Address } from 'viem';
-
-const contractAddress = '0x8d401464c1FFDB0103C0B542337bfB21Fc260144';
+import { useAccount } from 'wagmi';
+import { useCompletedCourses } from '@/hooks/useCompletedCourse';
+import { getLessonById } from '@/lib/lessons';
+import Link from 'next/link';
 
 const CompletedCourses = () => {
-  const { address } = useAccount(); // Get the connected wallet address
-  const [completedCourses, setCompletedCourses] = useState([]);
+  const { address } = useAccount();
+  const { completedCourses, loading, error } = useCompletedCourses(address);
 
-  // Use wagmi's useContractRead to call the getCompletedCourses function
-  const { data } = useContractRead({
-    address: '0x8d401464c1ffdb0103c0b542337bfb21fc260144' as Address,
-    abi: abi,
-    functionName: 'getCompletedCourses',
-    args: [address],
-    enabled: Boolean(address),
-  });
+  console.log(completedCourses);
 
-  useEffect(() => {
-    // setCompletedCourses(data);
-    console.log(data);
-  }, [data]);
+  // Map completed course IDs to actual lesson content
+  const completedLessons = completedCourses
+    .map(
+      (courseId) => getLessonById('1', courseId + '') // Assuming all courses are in course '1'
+    )
+    .filter((lesson) => lesson !== undefined); // Remove any undefined lessons
 
-  // if (isLoading) return <div>Loading...</div>;
-  // if (isError) return <div>Error loading completed courses.</div>;
+  if (loading) return <div>Loading completed courses...</div>;
+  if (error)
+    return <div>Error loading completed courses: {error?.message}</div>;
+
+  // console.log(completedLessons);
 
   return (
-    <div>
+    <div className="completed-courses">
       <h2>Completed Courses</h2>
-      {/* {completedCourses.length > 0 ? (
-        <ul>
-          {completedCourses.map((courseId) => (
-            <li key={courseId.toString()}>Course ID: {courseId.toString()}</li>
+      {completedLessons.length === 0 ? (
+        <p>You haven't completed any courses yet.</p>
+      ) : (
+        <ul className="courses-list">
+          {completedLessons.map((lesson) => (
+            <li key={lesson.id} className="course-item">
+              <Link href={`/courses/${lesson.courseId}/lessons/${lesson.id}`}>
+                <div className="course-details">
+                  <h3>{lesson.title}</h3>
+                  <p>{lesson.description}</p>
+                  <div className="course-metadata">
+                    <span>Module: {lesson.moduleTitle}</span>
+                  </div>
+                </div>
+              </Link>
+            </li>
           ))}
-        </ul> */}
-      {/* ) : (
-        <p>No completed courses found.</p>
-      )} */}
+        </ul>
+      )}
     </div>
   );
 };
