@@ -1,28 +1,28 @@
 
-# 🌟 KAIACamp
+#  KAIACamp
 
 **KAIACamp** is a blockchain-based learning platform that enables users to **learn step-by-step** and **earn NFT certificates** upon course completion. The platform is designed to make blockchain education accessible, interactive, and rewarding for all.
 
-## 🚀 Key Features
+##  Key Features
 
-### 🧑‍🏫 **Step-by-Step Learning**
+###  **Step-by-Step Learning**
 - A guided learning path from foundational concepts to advanced blockchain topics.
 - Interactive lessons with built-in exercises, quizzes, and coding challenges.
 
-### 🏆 **Earn NFT Certificates**
+###  **Earn NFT Certificates**
 - Upon course completion, students can mint **unique NFT certificates** on the blockchain.
 - Showcase your achievements in your wallet or on platforms like OpenSea.
 
-### 📊 **Progress Tracking**
+###  **Progress Tracking**
 - Monitor your progress through the curriculum and track completed milestones.
 - Compete with peers using global leaderboards.
 
-### 💻 **Built-in Code Editor**
+### **Built-in Code Editor**
 - Write and test smart contracts or blockchain-based applications directly in the platform.
 - Real-time feedback and hints for challenges.
 
 
-## 🧠 Learning Flow
+##  Learning Flow
 
 1. **Interactive Lessons**  
    Master topics like blockchain basics, smart contracts, DeFi, and NFTs.
@@ -35,7 +35,7 @@
 
 ---
 
-## 🌟 Why KAIACamp?
+##  Why KAIACamp?
 
 - Learn blockchain technology in a structured, easy-to-follow format.
 - Gain real-world skills and showcase your achievements with verifiable NFT certificates.
