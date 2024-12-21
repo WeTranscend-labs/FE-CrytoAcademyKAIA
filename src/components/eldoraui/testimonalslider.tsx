@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { Transition } from "@headlessui/react";
-import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { Transition } from '@headlessui/react';
+import Image from 'next/image';
+import { useEffect, useRef, useState } from 'react';
 
 interface Testimonial {
   img: string;
@@ -25,7 +25,7 @@ export function FancyTestimonialsSlider({
     if (!autorotate) return;
     const interval = setInterval(() => {
       setActive(
-        active + 1 === testimonials.length ? 0 : (active) => active + 1,
+        active + 1 === testimonials.length ? 0 : (active) => active + 1
       );
     }, autorotateTiming);
     return () => clearInterval(interval);
@@ -99,22 +99,24 @@ export function FancyTestimonialsSlider({
         {testimonials.map((testimonial, index) => (
           <button
             key={index}
-            className={`m-1.5 inline-flex justify-center whitespace-nowrap rounded-full px-3 py-1.5 text-xs shadow-sm transition-colors duration-150 focus-visible:outline-none focus-visible:ring focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 ${active === index
-              ? "bg-blue-600 text-white shadow-blue-950/20"
-              : "bg-white text-blue-900 hover:bg-blue-100"
-              }`}
+            className={`m-1.5 inline-flex justify-center whitespace-nowrap rounded-full px-3 py-1.5 text-xs shadow-sm transition-colors duration-150 focus-visible:outline-none focus-visible:ring focus-visible:ring-blue-500 dark:focus-visible:ring-blue-600 ${
+              active === index
+                ? 'bg-blue-600 text-white shadow-blue-950/20'
+                : 'bg-white text-blue-900 hover:bg-blue-100'
+            }`}
             onClick={() => {
               setActive(index);
               setAutorotate(false);
             }}
           >
-            <span>{testimonial.name}</span>{" "}
+            <span>{testimonial.name}</span>{' '}
             <span
-              className={`${active === index ? "text-blue-200" : "text-blue-400"
-                }`}
+              className={`${
+                active === index ? 'text-blue-200' : 'text-blue-400'
+              }`}
             >
               -
-            </span>{" "}
+            </span>{' '}
             <span>{testimonial.role}</span>
           </button>
         ))}

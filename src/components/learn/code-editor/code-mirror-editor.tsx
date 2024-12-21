@@ -26,7 +26,13 @@ interface CodeMirrorEditorProps {
   onRun: () => void;
 }
 
-export default function CodeMirrorEditor({ value, onChange, language, lesson, onRun }: CodeMirrorEditorProps) {
+export default function CodeMirrorEditor({
+  value,
+  onChange,
+  language,
+  lesson,
+  onRun,
+}: CodeMirrorEditorProps) {
   const editorRef = useRef<HTMLDivElement>(null);
   const cmInstanceRef = useRef<CodeMirror.EditorFromTextArea | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);

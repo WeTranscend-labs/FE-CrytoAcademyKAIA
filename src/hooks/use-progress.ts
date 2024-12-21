@@ -1,11 +1,11 @@
-import { useCallback, useMemo } from "react";
-import { ILessonContent } from "@/types/lesson";
+import { ILessonContent } from '@/types/lesson';
+import { useMemo } from 'react';
 
 import {
   getCourseProgress,
   getNextLesson,
   getPreviousLesson,
-} from "@/lib/progress";
+} from '@/lib/progress';
 
 export function useProgress(lesson: ILessonContent) {
   const currentProgress = useMemo(
