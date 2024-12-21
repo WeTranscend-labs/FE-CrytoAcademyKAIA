@@ -1,5 +1,5 @@
-import { validateSolution } from "@/lib/validation";
-import { Step, TestResult } from "@/types/lesson";
+import { validateSolution } from '@/lib/validation';
+import { Step, TestResult } from '@/types/lesson';
 
 export async function validateCode(
   code: string,
@@ -9,7 +9,7 @@ export async function validateCode(
   testResults: TestResult[];
 }> {
   try {
-    const result = await validateSolution(code, step.tests);
+    const result = await validateSolution(code, step.tests, step.solution);
     return {
       isValid: result.isValid,
       testResults: result.testResults,
@@ -20,9 +20,9 @@ export async function validateCode(
       testResults: [
         {
           passed: false,
-          description: "Code execution error",
+          description: 'Code execution error',
           error:
-            error instanceof Error ? error.message : "Unknown error occurred",
+            error instanceof Error ? error.message : 'Unknown error occurred',
         },
       ],
     };
